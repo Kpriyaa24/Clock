@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .clock-container {
+            background-color: rgb(22, 20, 20);
+            text-align: center;
+
+
+            padding: 50px;
+            border-radius: 10px;
+            font-size: 40px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock-container">
+        <h1 class="clock">00:00:00</h1>
+    </div>
+    <audio src="./mixkit-tick-tock-clock-close-up-1059.wav" preload="auto"></audio>
+
+    <script>
+        
+        setInterval(() => {
+            const element = document.querySelector(".clock");
+            const sound = document.querySelector("audio");
+            const time = new Date();
+            const option = {
+                timeZone: 'Asia/Kolkata',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            }
+            element.textContent = time.toLocaleTimeString('en-US', option);
+            sound.play();
+
+        }, 1000);
+        
+
+    </script>
+</body>
+
+</html>
